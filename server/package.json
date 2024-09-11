@@ -8,7 +8,10 @@
   },
   "scripts": {
     "dev": "tsx watch --env-file .env src/http/server.ts",
-    "seed": "tsx --env-file .env src/db/seed.ts"
+    "db:generate-migrations": "drizzle-kit generate",
+    "db:execute-migrations": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx --env-file .env src/db/seed.ts"
   },
   "keywords": [],
   "author": "",
