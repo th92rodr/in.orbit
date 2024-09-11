@@ -13,9 +13,13 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "dependencies": {
+    "drizzle-orm": "0.33.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/node": "22.2.0",
+    "drizzle-kit": "0.24.0",
     "tsx": "4.17.0",
     "typescript": "5.5.4"
   }
