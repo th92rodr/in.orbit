@@ -3,7 +3,6 @@ import { getWeekPendingGoals } from '../../usecases/get-week-pending-goals'
 
 export const getPendingGoalsRoute: FastifyPluginAsyncZod = async app => {
   app.get('/pending-goals', async () => {
-    const { pendingGoals } = await getWeekPendingGoals()
-    return { pendingGoals }
+    return await getWeekPendingGoals()
   })
 }
