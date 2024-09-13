@@ -1,0 +1,154 @@
+_type: export
+__export_format: 4
+__export_date: 2024-09-13T00:33:13.820Z
+__export_source: insomnia.desktop.app:v2020.2.2
+resources:
+  - _id: req_298c2ddbf95a427895d1534623e7f40a
+    authentication: {}
+    body: {}
+    created: 1726078878643
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1726078878643
+    method: GET
+    modified: 1726078895521
+    name: Get Week Pending Goals
+    parameters: []
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{baseurl}}/pending-goals"
+    _type: request
+  - _id: wrk_74b57b2b5aaa483b9422f5c90171e613
+    created: 1726074547397
+    description: ""
+    modified: 1726074562687
+    name: In.Orbit API
+    parentId: null
+    scope: null
+    _type: workspace
+  - _id: req_7a9a6546ad1e4e5ca40be02f5b53d461
+    authentication: {}
+    body: {}
+    created: 1726089256718
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1726076738481
+    method: GET
+    modified: 1726089262004
+    name: Get Week Summary
+    parameters: []
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{baseurl}}/summary"
+    _type: request
+  - _id: req_60ab9a7f6e234496b74905cf3eff28bc
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "study",
+        	"desired_weekly_frequency": 5
+        }
+    created: 1726074598319
+    description: ""
+    headers:
+      - id: pair_a1639ec8220743e3b62c8233af65fcbb
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1726074598319
+    method: POST
+    modified: 1726093615639
+    name: Create Goal
+    parameters: []
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{baseurl}}/goals"
+    _type: request
+  - _id: req_7c63ab16cd7a4386ac59828b8922d969
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"goal_id": "lixki6y1ivvat6g0hp7mexx0"
+        }
+    created: 1726078838859
+    description: ""
+    headers:
+      - id: pair_a1639ec8220743e3b62c8233af65fcbb
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1721582448422
+    method: POST
+    modified: 1726093644803
+    name: Create Goal Completion
+    parameters: []
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{baseurl}}/completions"
+    _type: request
+  - _id: env_6b6791cc2f9d0828a2f28e76ce57f2c61231bd5c
+    color: null
+    created: 1726074547484
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1726074547485
+    modified: 1726074547484
+    name: Base Environment
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    _type: environment
+  - _id: jar_6b6791cc2f9d0828a2f28e76ce57f2c61231bd5c
+    cookies: []
+    created: 1726074547486
+    modified: 1726074547486
+    name: Default Jar
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    _type: cookie_jar
+  - _id: spc_71981e35e063427e85e166c81f3770db
+    contentType: yaml
+    contents: ""
+    created: 1726074547414
+    fileName: In.Orbit
+    modified: 1726074547414
+    parentId: wrk_74b57b2b5aaa483b9422f5c90171e613
+    _type: api_spec
+  - _id: env_21eb8ec2b2f44eab8c47e39154de028c
+    color: "#7d69cb"
+    created: 1726074797632
+    data:
+      baseurl: localhost:3333
+    dataPropertyOrder:
+      "&":
+        - baseurl
+    isPrivate: false
+    metaSortKey: 1726074797632
+    modified: 1726074830300
+    name: local env
+    parentId: env_6b6791cc2f9d0828a2f28e76ce57f2c61231bd5c
+    _type: environment
