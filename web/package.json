@@ -1,7 +1,8 @@
 {
-  "name": "web",
+  "name": "in-orbit-web",
   "version": "1.0.0",
   "type": "module",
+  "license": "BSD-3",
   "engines": {
     "node": "20.16.0",
     "npm": "10.8.1"
@@ -12,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "3.9.0",
     "@radix-ui/react-dialog": "1.1.1",
     "@radix-ui/react-progress": "1.1.0",
     "@radix-ui/react-radio-group": "1.2.0",
@@ -20,8 +22,10 @@
     "lucide-react": "0.427.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-hook-form": "7.52.2",
     "tailwind-merge": "2.5.2",
-    "tailwind-variants": "0.2.1"
+    "tailwind-variants": "0.2.1",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
