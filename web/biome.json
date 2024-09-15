@@ -4,6 +4,7 @@
     "enabled": true
   },
   "formatter": {
+    "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100
@@ -14,7 +15,8 @@
       "jsxQuoteStyle": "double",
       "quoteStyle": "single",
       "semicolons": "asNeeded",
-      "trailingCommas": "es5"
+      "trailingCommas": "es5",
+      "bracketSpacing": true
     }
   },
   "linter": {
