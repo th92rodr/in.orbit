@@ -12,6 +12,17 @@ export async function createGoalCompletion({ goalId }: CreateGoalCompletionReque
   const firstDayOfCurrentWeek = dayjs().startOf('week').toDate()
   const lastDayOfCurrentWeek = dayjs().endOf('week').toDate()
 
+  const goal = await db
+    .select({})
+    .from(goals)
+    .where(
+      eq(goals.id, goalId)
+    )
+
+  if (!goal[0]) {
+    throw new Error('Goal not found')
+  }
+
   const goalCompletionCount = db.$with('goal_completion_count').as(
     db
       .select({
