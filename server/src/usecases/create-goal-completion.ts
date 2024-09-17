@@ -3,6 +3,7 @@ import { and, count, eq, gte, lte, sql } from 'drizzle-orm'
 
 import { db } from '../db'
 import { goalCompletions, goals } from '../db/schema'
+import { ClientError } from '../errors/client-error'
 
 interface CreateGoalCompletionRequest {
   goalId: string
@@ -20,7 +21,7 @@ export async function createGoalCompletion({ goalId }: CreateGoalCompletionReque
     )
 
   if (!goal[0]) {
-    throw new Error('Goal not found')
+    throw new ClientError('Goal not found.')
   }
 
   const goalCompletionCount = db.$with('goal_completion_count').as(
@@ -58,7 +59,7 @@ export async function createGoalCompletion({ goalId }: CreateGoalCompletionReque
   const { completionCount, desiredWeeklyFrequency } = result[0]
 
   if (completionCount >= desiredWeeklyFrequency) {
-    throw new Error('Goal already completed this week')
+    throw new ClientError('Goal already completed this week.')
   }
 
   const insertResult = await db

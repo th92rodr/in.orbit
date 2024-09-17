@@ -7,6 +7,7 @@ import {
 } from 'fastify-type-provider-zod'
 
 import { env } from '../env'
+import { errorHandler } from '../error-handler'
 import { createGoalCompletionRoute } from './routes/create-goal-completion'
 import { createGoalRoute } from './routes/create-goals'
 import { getPendingGoalsRoute } from './routes/get-pending-goals'
@@ -20,6 +21,8 @@ app.register(cors, {
 
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
+
+app.setErrorHandler(errorHandler)
 
 app.register(createGoalRoute)
 app.register(createGoalCompletionRoute)
