@@ -28,7 +28,7 @@ export function CreateGoal() {
   async function handleCreateGoal(data: CreateGoalForm) {
     await createGoal({
       title: data.title,
-      desired_weekly_frequency: data.desired_weekly_frequency,
+      desiredWeeklyFrequency: data.desired_weekly_frequency,
     })
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
