@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { and, count, eq, gte, lte, sql } from 'drizzle-orm'
+
 import { db } from '../db'
 import { goalCompletions, goals } from '../db/schema'
 
@@ -30,16 +31,17 @@ export async function createGoalCompletion({ goalId }: CreateGoalCompletionReque
     .with(goalCompletionCount)
     .select({
       desiredWeeklyFrequency: goals.desiredWeeklyFrequency,
-      completionCount: sql`
-        COALESCE(${goalCompletionCount.completionCount}, 0)
-      `.mapWith(Number),
+      completionCount: sql`COALESCE(${goalCompletionCount.completionCount}, 0)`
+        .mapWith(Number),
     })
     .from(goals)
     .leftJoin(
       goalCompletionCount,
       eq(goalCompletionCount.goalId, goals.id)
     )
-    .where(eq(goals.id, goalId))
+    .where(
+      eq(goals.id, goalId)
+    )
     .limit(1)
 
   const { completionCount, desiredWeeklyFrequency } = result[0]
