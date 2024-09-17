@@ -88,7 +88,7 @@ export function Summary() {
                       <CheckCircle2 className="size-4 text-pink-500" />
                       <span className="text-sm text-zinc-400">
                         Você completou "<span className="text-zinc-100">{goal.title}</span>" às{' '}
-                        <span className="text-zinc-100">{time}h</span>
+                        <span className="text-zinc-100">{time}</span>
                       </span>
                     </li>
                   )

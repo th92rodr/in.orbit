@@ -1,14 +1,11 @@
 type SummaryResponse = {
   completed: number
   total: number
-  goals_per_day: Record<
-    string,
-    {
-      id: string
-      title: string
-      completed_at: string
-    }[]
-  >
+  goals_per_day: Record<string, {
+    id: string
+    title: string
+    completed_at: string
+  }[]>
 }
 
 export async function getSummary(): Promise<SummaryResponse> {
