@@ -1,18 +1,20 @@
+import cors from '@fastify/cors'
 import fastify from 'fastify'
-import fastifyCors from '@fastify/cors'
 import {
+  type ZodTypeProvider,
   serializerCompiler,
   validatorCompiler,
-  type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
-import { createGoalRoute } from './routes/create-goals'
+
+import { env } from '../env'
 import { createGoalCompletionRoute } from './routes/create-goal-completion'
+import { createGoalRoute } from './routes/create-goals'
 import { getPendingGoalsRoute } from './routes/get-pending-goals'
 import { getWeekSummaryRoute } from './routes/get-week-summary'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
-app.register(fastifyCors, {
+app.register(cors, {
   origin: '*',
 })
 
@@ -24,6 +26,6 @@ app.register(createGoalCompletionRoute)
 app.register(getPendingGoalsRoute)
 app.register(getWeekSummaryRoute)
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running')
 })
