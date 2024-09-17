@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { and, desc, eq, gte, lte, sql } from 'drizzle-orm'
+
 import { db } from '../db'
 import { goalCompletions, goals } from '../db/schema'
 
@@ -16,7 +17,9 @@ export async function getWeekSummary() {
         created_at: goals.createdAt,
       })
       .from(goals)
-      .where(lte(goals.createdAt, lastDayOfCurrentWeek))
+      .where(
+        lte(goals.createdAt, lastDayOfCurrentWeek)
+      )
   )
 
   const goalsCompletedInCurrentWeek = db.$with('goals_completed_in_current_week').as(
