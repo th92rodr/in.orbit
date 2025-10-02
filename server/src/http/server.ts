@@ -16,7 +16,7 @@ import { getWeekSummaryRoute } from '@/http/routes/get-week-summary'
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
 app.register(cors, {
-  origin: '*',
+  origin: env.CORS_ORIGIN,
 })
 
 app.setValidatorCompiler(validatorCompiler)
@@ -29,6 +29,6 @@ app.register(createGoalCompletionRoute)
 app.register(getPendingGoalsRoute)
 app.register(getWeekSummaryRoute)
 
-app.listen({ port: env.PORT }).then(() => {
-  console.log('HTTP server running')
+app.listen({ host: env.HOST, port: env.PORT }).then(() => {
+  console.log(`HTTP server listening at: http://${env.HOST}:${env.PORT}`)
 })
