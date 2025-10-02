@@ -6,12 +6,12 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 
-import { env } from '../env'
-import { errorHandler } from '../error-handler'
-import { createGoalCompletionRoute } from './routes/create-goal-completion'
-import { createGoalRoute } from './routes/create-goals'
-import { getPendingGoalsRoute } from './routes/get-pending-goals'
-import { getWeekSummaryRoute } from './routes/get-week-summary'
+import { env } from '@/env'
+import { errorHandler } from '@/error-handler'
+import { createGoalCompletionRoute } from '@/http/routes/create-goal-completion'
+import { createGoalRoute } from '@/http/routes/create-goals'
+import { getPendingGoalsRoute } from '@/http/routes/get-pending-goals'
+import { getWeekSummaryRoute } from '@/http/routes/get-week-summary'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
