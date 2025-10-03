@@ -1,0 +1,11 @@
+name: 'in-orbit-server'
+
+services:
+  postgresql:
+    image: bitnami/postgresql:13.16.0
+    ports:
+      - '${DATABASE_PORT}:5432'
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_DB_NAME}
