@@ -12,6 +12,8 @@
   },
   "scripts": {
     "dev": "tsx watch --env-file .env src/http/server.ts",
+    "build": "tsup-node",
+    "start": "node --env-file .env dist/http/server.js",
 
     "db:generate-migrations": "drizzle-kit generate",
     "db:execute-migrations": "drizzle-kit migrate",
@@ -35,6 +37,7 @@
     "@biomejs/biome": "1.9.4",
     "@types/node": "22.2.0",
     "drizzle-kit": "0.24.0",
+    "tsup": "8.5.0",
     "tsx": "4.17.0",
     "typescript": "5.5.4"
   }
